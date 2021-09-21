@@ -1,0 +1,11 @@
+.adoptables-title {
+  color: #462868;
+  font-size: 3em;
+  text-align: center;
+}
+.card-container {
+  padding: 0 180px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
