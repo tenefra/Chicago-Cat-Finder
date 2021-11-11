@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useEffect, useContext } from "react"
+import { Link } from "react-router-dom"
 import Card from "@mui/material/Card"
 import CardActions from "@mui/material/CardActions"
 import CardContent from "@mui/material/CardContent"
@@ -6,10 +7,13 @@ import CardMedia from "@mui/material/CardMedia"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import { createTheme } from "@material-ui/core/styles"
+import Icon from "@mdi/react"
+import { mdiHeart } from "@mdi/js"
+import { mdiCat } from "@mdi/js"
 
+import StateContext from "../../StateContext"
+import CatCard from "../catCard/CatCard"
 import "./adoptablesStyles.css"
-import merlin from "./images/merlin.jpg"
-import spicy from "./images/spicy.JPG"
 
 const theme = createTheme({
   palette: {
@@ -28,86 +32,29 @@ const theme = createTheme({
   }
 })
 function Adoptables() {
+  const globalState = useContext(StateContext)
+
   return (
     <container>
       <div style={{ backgroundColor: theme.palette.primary.main, height: "50px", width: "100%" }}></div>
       <h1 className="adoptables-title">Cats Looking for a Home in Chicago</h1>
       <div className="card-container">
-        <Card sx={{ width: 280 }}>
-          <CardMedia component="img" height="180" src={merlin} alt="merlin" />
-          <CardContent style={{ textAlign: "center" }}>
-            <Typography color={theme.palette.primary.dark} gutterBottom variant="h4" component="div">
-              Merlin
-            </Typography>
-            <Typography variant="h6" color="text.secondary">
-              Adult
-            </Typography>
-            <Typography style={{ padding: "0 0 10px" }} variant="p" color="text.secondary">
-              Tree House Humane Society
+        {globalState.cats.slice(0, 3).map(cat => {
+          return <CatCard cat={cat} key={cat.catID} />
+        })}
+
+        <Card sx={{ width: 280, backgroundColor: theme.palette.primary.main }}>
+          <Icon path={mdiCat} style={{ width: "120px", margin: "0 25%", padding: "54px 0 0" }} size={6} color="white" />
+          <CardContent style={{ textAlign: "center", padding: "30px 40px 40px" }}>
+            <Typography style={{ padding: "0 0 10px", margin: "0 0 40px", color: theme.palette.primary.contrastText }} variant="p">
+              More cats available in your area!
             </Typography>
           </CardContent>
-          <CardActions>
-            <Button style={{ backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText }} size="medium">
-              Chicago
-            </Button>
-          </CardActions>
-        </Card>
-        <Card sx={{ width: 280 }}>
-          <CardMedia component="img" height="180" src={spicy} alt="green iguana" />
-          <CardContent style={{ textAlign: "center" }}>
-            <Typography color={theme.palette.primary.dark} gutterBottom variant="h4" component="div">
-              Spicy
-            </Typography>
-            <Typography variant="h6" color="text.secondary">
-              Adult
-            </Typography>
-            <Typography style={{ padding: "0 0 10px" }} variant="p" color="text.secondary">
-              Tree House Humane Society
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button style={{ backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText }} size="medium">
-              Chicago
-            </Button>
-          </CardActions>
-        </Card>
-        <Card sx={{ width: 280 }}>
-          <CardMedia component="img" height="180" src={merlin} alt="green iguana" />
-          <CardContent style={{ textAlign: "center" }}>
-            <Typography color={theme.palette.primary.dark} gutterBottom variant="h4" component="div">
-              Merlin
-            </Typography>
-            <Typography variant="h6" color="text.secondary">
-              Adult
-            </Typography>
-            <Typography style={{ padding: "0 0 10px" }} variant="p" color="text.secondary">
-              Tree House Humane Society
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button style={{ backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText }} size="medium">
-              Chicago
-            </Button>
-          </CardActions>
-        </Card>
-        <Card sx={{ width: 280 }}>
-          <CardMedia component="img" height="180" src={spicy} alt="green iguana" />
-          <CardContent style={{ textAlign: "center" }}>
-            <Typography color={theme.palette.primary.dark} gutterBottom variant="h4" component="div">
-              Spicy
-            </Typography>
-            <Typography variant="h6" color="text.secondary">
-              Adult
-            </Typography>
-            <Typography style={{ padding: "0 0 10px" }} variant="p" color="text.secondary">
-              Tree House Humane Society
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button style={{ backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText }} size="medium">
-              Chicago
-            </Button>
-          </CardActions>
+          <Link to="/cats">
+            <CardActions style={{ padding: 0 }}>
+              <Button className="meet-them-btn">MEET THEM</Button>
+            </CardActions>
+          </Link>
         </Card>
       </div>
     </container>

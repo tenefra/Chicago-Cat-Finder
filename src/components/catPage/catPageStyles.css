@@ -1,0 +1,30 @@
+.cat-page-name {
+  font-size: 4em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding: 0 0 10px 0;
+}
+
+.cat-page-subitem {
+  font-size: 2em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.cat-page-topsection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.cat-page-column-one {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 180px 0 100px;
+}
+
+.cat-page-img {
+  max-width: 850px;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}

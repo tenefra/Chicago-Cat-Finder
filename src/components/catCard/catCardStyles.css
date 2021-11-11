@@ -1,15 +1,3 @@
-.adoptables-title {
-  color: #462868;
-  font-size: 3em;
-  text-align: center;
-}
-.card-container {
-  padding: 0 180px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
 .meet-them-btn {
   background-color: #745296;
   color: #fff !important;
@@ -23,17 +11,24 @@
   background-color: #462868 !important;
 }
 
-.card-heart {
+.card-heart-empty {
   color: white;
   position: absolute;
   margin: 10px 0 0 210px;
 }
 
-.card-heart:hover {
+.card-heart-empty:hover {
   color: red;
   transition: all 0.5s ease-in-out;
 }
 
-.card-heart:focus {
+.card-heart-liked {
   color: red;
+  position: absolute;
+  margin: 10px 0 0 210px;
+}
+
+.card-heart-liked:hover {
+  color: white;
+  transition: all 0.5s ease-in-out;
 }

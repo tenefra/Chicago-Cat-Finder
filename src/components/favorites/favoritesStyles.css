@@ -1,0 +1,13 @@
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.items {
+  margin: 20px 0 0 300px;
+}
+
+.cat-card {
+  margin: 20px 40px;
+}

@@ -13,6 +13,13 @@
 }
 
 .nav-list-item > a {
-  text-decoration: none;
   color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+li:hover {
+  cursor: pointer;
 }

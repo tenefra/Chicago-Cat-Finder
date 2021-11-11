@@ -1,0 +1,36 @@
+.results-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 20px 0 0 300px;
+}
+
+.cat-card {
+  margin: 20px 40px;
+}
+
+.zip-form {
+  display: flex;
+}
+
+.card-heart {
+  color: white;
+  position: absolute;
+  margin: 10px 0 0 210px;
+}
+
+.card-heart:hover {
+  color: red;
+  transition: all 0.5s ease-in-out;
+}
+
+.card-heart:focus {
+  color: red;
+}
