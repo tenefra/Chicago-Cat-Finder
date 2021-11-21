@@ -8,7 +8,7 @@ import StateContext from "../../StateContext"
 function CatPage() {
   const { id } = useParams()
   const globalState = useContext(StateContext)
-  const cat = globalState.cats.find(cat => cat.catID == id)
+  const cat = globalState.cats.find(cat => cat.id == id)
 
   return (
     <>
@@ -20,7 +20,7 @@ function CatPage() {
             <h4 className="cat-page-subitem">{cat.shelter}</h4>
           </div>
           <div>
-            <img className="cat-page-img" src={cat.img} />
+            <img className="cat-page-img" src={cat.photos[0].large} />
           </div>
         </section>
       </container>

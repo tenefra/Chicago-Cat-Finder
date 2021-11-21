@@ -6,10 +6,10 @@
 
 .items {
   display: flex;
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 20px 0 0 300px;
+  margin: 100px 40px 40px;
 }
 
 .cat-card {
@@ -33,4 +33,17 @@
 
 .card-heart:focus {
   color: red;
+}
+
+.results-form {
+  position: absolute;
+  width: 100px;
+  left: 100px;
+  top: 100px;
+  padding: 10px 0 10px 20px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 1.2em;
+  color: #000;
+  background: #f6f6f6;
 }

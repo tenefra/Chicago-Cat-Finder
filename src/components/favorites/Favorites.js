@@ -17,33 +17,12 @@ function Favorites() {
   const globalState = useContext(StateContext)
   const appDispatch = useContext(DispatchContext)
 
-  async function fetchFavorites() {
-    try {
-      const response = await Axios.post("http://localhost:3306/cats/findfavorites", { id: globalState.user.id })
-
-      if (response.data) {
-        console.log(response.data)
-        console.log("Returning favorited cats now...")
-
-        appDispatch({ type: "updateFavorites", data: response.data })
-      } else {
-        console.log("This user has not favorited any cats yet.")
-      }
-    } catch (e) {
-      console.log(e.response)
-    }
-  }
-
-  useEffect(() => {
-    fetchFavorites()
-  }, [])
-
   return (
     <>
       <h1 className="adoptables-title">Cats {globalState.user.username} Has Their Eye On</h1>
       <ul className="items">
         {globalState.favorites.map(cat => {
-          return <CatCard cat={cat} key={cat.catID} />
+          return <CatCard cat={cat} key={cat.id} />
         })}
       </ul>
     </>

@@ -1,4 +1,5 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
+import Axios from "axios"
 import Icon from "@mdi/react"
 import { mdiCat } from "@mdi/js"
 import { History, withRouter } from "react-router-dom"
@@ -11,6 +12,7 @@ import "./searchStyles.css"
 function Search(props) {
   const globalState = useContext(StateContext)
   const appDispatch = useContext(DispatchContext)
+  const requestCats = props.requestCats
 
   const handleZipChange = e => {
     appDispatch({ type: "updateZipcode", value: e.target.value })
@@ -18,9 +20,10 @@ function Search(props) {
 
   const handleSubmit = e => {
     e.preventDefault()
-    appDispatch({ type: "updateZipcode", value: globalState.zipcode })
+    requestCats()
     props.history.push("/cats")
   }
+
   return (
     <container className="background-container">
       <h1 className="search-title">Find a cat near you!</h1>

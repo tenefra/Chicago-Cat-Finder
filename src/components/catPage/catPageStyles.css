@@ -19,12 +19,11 @@
 .cat-page-column-one {
   display: flex;
   flex-direction: column;
-  padding: 40px 180px 0 100px;
+  padding: 40px 100px 0 100px;
 }
 
 .cat-page-img {
-  max-width: 850px;
-  width: 100%;
+  width: 550px;
   height: 100vh;
   object-fit: cover;
 }

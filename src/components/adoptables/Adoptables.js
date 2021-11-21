@@ -34,29 +34,38 @@ const theme = createTheme({
 function Adoptables() {
   const globalState = useContext(StateContext)
 
+  if (globalState.cats) {
+    return (
+      <container>
+        <div style={{ backgroundColor: theme.palette.primary.main, height: "50px", width: "100%" }}></div>
+        <h1 className="adoptables-title">Cats Looking for a Home in Chicago</h1>
+        <div className="card-container">
+          {globalState.cats.slice(0, 3).map(cat => {
+            return <CatCard cat={cat} key={cat.id} />
+          })}
+
+          <Card sx={{ width: 280, height: 357, backgroundColor: theme.palette.primary.main }}>
+            <Icon path={mdiCat} style={{ width: "120px", margin: "0 25%", padding: "54px 0 0" }} size={6} color="white" />
+            <CardContent style={{ textAlign: "center", padding: "30px 40px 30px" }}>
+              <Typography className="body-style" style={{ padding: "0 0 10px", margin: "0 0 40px", color: theme.palette.primary.contrastText }} variant="p">
+                More cats available in your area!
+              </Typography>
+            </CardContent>
+            <Link to="/cats">
+              <CardActions style={{ padding: 0 }}>
+                <Button className="body-style meet-them-btn">MEET THEM</Button>
+              </CardActions>
+            </Link>
+          </Card>
+        </div>
+      </container>
+    )
+  }
   return (
     <container>
       <div style={{ backgroundColor: theme.palette.primary.main, height: "50px", width: "100%" }}></div>
       <h1 className="adoptables-title">Cats Looking for a Home in Chicago</h1>
-      <div className="card-container">
-        {globalState.cats.slice(0, 3).map(cat => {
-          return <CatCard cat={cat} key={cat.catID} />
-        })}
-
-        <Card sx={{ width: 280, backgroundColor: theme.palette.primary.main }}>
-          <Icon path={mdiCat} style={{ width: "120px", margin: "0 25%", padding: "54px 0 0" }} size={6} color="white" />
-          <CardContent style={{ textAlign: "center", padding: "30px 40px 40px" }}>
-            <Typography style={{ padding: "0 0 10px", margin: "0 0 40px", color: theme.palette.primary.contrastText }} variant="p">
-              More cats available in your area!
-            </Typography>
-          </CardContent>
-          <Link to="/cats">
-            <CardActions style={{ padding: 0 }}>
-              <Button className="meet-them-btn">MEET THEM</Button>
-            </CardActions>
-          </Link>
-        </Card>
-      </div>
+      <div className="card-container"></div>
     </container>
   )
 }

@@ -2,12 +2,13 @@ import React from "react"
 
 import Search from "../search/Search"
 import Adoptables from "../adoptables/Adoptables"
-import SearchResults from "../searchResults/SearchResults"
 
-function Dashboard() {
+function Dashboard(props) {
+  const requestCats = props.requestCats
+
   return (
     <>
-      <Search />
+      <Search requestCats={requestCats} />
       <Adoptables />
     </>
   )

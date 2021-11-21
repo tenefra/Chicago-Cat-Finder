@@ -38,6 +38,10 @@ const Navigation = () => {
     appDispatch({ type: "createAccountClicked" })
   }
 
+  const loginClicked = () => {
+    appDispatch({ type: "loginClicked" })
+  }
+
   return (
     <>
       <AppBar style={{ backgroundColor: theme.palette.primary.main, padding: "0 110px" }} position="relative">
@@ -60,9 +64,15 @@ const Navigation = () => {
             </li>
           </ul>
           <div style={{ borderLeft: "3px solid #462868", height: "64px", paddingRight: "20px" }}></div>
-          <Link to="/favorites">
-            <Icon path={mdiHeart} size={1.3} color="white" />
-          </Link>
+          {globalState.loggedIn ? (
+            <Link to="/favorites">
+              <Icon path={mdiHeart} size={1.3} color="white" />
+            </Link>
+          ) : (
+            <a onClick={loginClicked}>
+              <Icon path={mdiHeart} size={1.3} color="white" />
+            </a>
+          )}
           <div style={{ borderRight: "3px solid #462868", height: "64px", paddingLeft: "20px" }}></div>
           <ul className="nav-list">
             {globalState.loggedIn ? (

@@ -18,7 +18,8 @@ import { Switch, Route, Redirect } from "react-router"
 //   return <Route {...rest} render={props => (checkAuth() ? <Component {...props} /> : <Redirect to="/" />)} />
 // }
 
-const Router = () => {
+const Router = props => {
+  const requestCats = props.requestCats
   return (
     <Switch>
       {/* <ProtectedRoute path="/addlisting" component={AddListingContainer} /> */}
@@ -29,7 +30,7 @@ const Router = () => {
         <Help />
       </Route>
       <Route path="/cats">
-        <CatDashboard />
+        <CatDashboard requestCats={requestCats} />
       </Route>
       <Route path="/cat/:id">
         <CatPage />
@@ -38,7 +39,7 @@ const Router = () => {
         <Favorites />
       </Route>
       <Route path="/">
-        <Dashboard />
+        <Dashboard requestCats={requestCats} />
       </Route>
     </Switch>
   )

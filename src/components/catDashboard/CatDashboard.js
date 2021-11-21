@@ -4,11 +4,12 @@ import CatSidebar from "../catSidebar/CatSidebar"
 
 import "./catDashboardStyles.css"
 
-function CatDashboard() {
+function CatDashboard(props) {
+  const requestCats = props.requestCats
+
   return (
     <main className="dashboard">
-      <CatSidebar />
-      <SearchResults />
+      <SearchResults requestCats={requestCats} />
     </main>
   )
 }

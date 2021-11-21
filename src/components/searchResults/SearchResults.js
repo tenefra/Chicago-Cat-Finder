@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { createTheme } from "@material-ui/core/styles"
 
 import StateContext from "../../StateContext"
+import DispatchContext from "../../DispatchContext"
 import CatCard from "../catCard/CatCard"
 import "./searchResultsStyles.css"
 
@@ -22,19 +23,36 @@ const theme = createTheme({
   }
 })
 
-function SearchResults() {
+function SearchResults(props) {
   const globalState = useContext(StateContext)
+  const appDispatch = useContext(DispatchContext)
+  const requestCats = props.requestCats
+
+  const handleZipChange = e => {
+    appDispatch({ type: "updateZipcode", value: e.target.value })
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    requestCats()
+  }
 
   return (
-    <div className="items">
-      {globalState.cats.map(cat => {
-        return (
-          <>
-            <CatCard cat={cat} key={cat.catID} />
-          </>
-        )
-      })}
-    </div>
+    <>
+      <form onSubmit={e => handleSubmit(e)}>
+        <input onChange={handleZipChange} type="text" className="results-form" name="zip" placeholder={globalState.zipcode}></input>
+      </form>
+
+      <div className="items">
+        {globalState.cats.map(cat => {
+          return (
+            <>
+              <CatCard cat={cat} key={cat.id} />
+            </>
+          )
+        })}
+      </div>
+    </>
   )
 }
 

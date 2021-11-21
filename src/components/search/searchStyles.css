@@ -25,13 +25,13 @@
 }
 .search-input {
   width: 100%;
-  padding: 10px;
+  padding: 10px 0 10px 30px;
   border: none;
   border-radius: 10px 0 0 10px;
   border-right: none;
   outline: none;
   font-size: 2em;
-  color: #745296;
+  color: #462868;
   background: #f6f6f6;
 }
 .search-button {
