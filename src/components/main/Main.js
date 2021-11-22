@@ -18,7 +18,7 @@ function Main() {
 
   async function fetchFavorites() {
     try {
-      const response = await Axios.post("http://localhost:3306/cats/findfavorites", { id: globalState.user.id })
+      const response = await Axios.post("https://young-fortress-07940.herokuapp.com/cats/findfavorites", { id: globalState.user.id })
 
       if (response.data) {
         console.log(response.data)
@@ -37,7 +37,7 @@ function Main() {
     const zip = parseInt(globalState.zipcode)
 
     try {
-      const response = await Axios.post("http://localhost:3306/token")
+      const response = await Axios.post("https://young-fortress-07940.herokuapp.com/token")
       const accessToken = response.data
 
       if (accessToken) {

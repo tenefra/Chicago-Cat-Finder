@@ -48,7 +48,8 @@ function Adoptables() {
             <Icon path={mdiCat} style={{ width: "120px", margin: "0 25%", padding: "54px 0 0" }} size={6} color="white" />
             <CardContent style={{ textAlign: "center", padding: "30px 40px 30px" }}>
               <Typography className="body-style" style={{ padding: "0 0 10px", margin: "0 0 40px", color: theme.palette.primary.contrastText }} variant="p">
-                More cats available in your area!
+                More cats available <br />
+                in your area!
               </Typography>
             </CardContent>
             <Link to="/cats">

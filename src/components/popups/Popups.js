@@ -38,7 +38,7 @@ function Popups() {
   async function handleSubmit(e) {
     e.preventDefault()
     try {
-      const response = await Axios.post("http://localhost:3306/createUser", { username: globalState.username, email: globalState.email, password: globalState.password })
+      const response = await Axios.post("https://young-fortress-07940.herokuapp.com/createUser", { username: globalState.username, email: globalState.email, password: globalState.password })
 
       if (response.data.token) {
         console.log("User was successfully created.")
@@ -56,7 +56,7 @@ function Popups() {
   async function handleLoginSubmit(e) {
     e.preventDefault()
     try {
-      const response = await Axios.post("http://localhost:3306/login", { username: globalState.username, password: globalState.password })
+      const response = await Axios.post("https://young-fortress-07940.herokuapp.com/login", { username: globalState.username, password: globalState.password })
 
       if (response.data.token) {
         console.log("User was successfully logged in.")

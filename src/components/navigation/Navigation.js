@@ -53,14 +53,14 @@ const Navigation = () => {
           </Link>
           <ul className="nav-list" style={{ flexGrow: "1" }}>
             <li className="nav-list-item">
-              <Link to="/cats">Find a cat</Link>
+              <Link to="/cats">Find A Cat</Link>
             </li>
 
             <li className="nav-list-item">
-              <Link to="/care">Learn some tricks</Link>
+              <Link to="/care">Pet Care</Link>
             </li>
             <li className="nav-list-item">
-              <Link to="/help">How to help</Link>
+              <Link to="/help">Donate</Link>
             </li>
           </ul>
           <div style={{ borderLeft: "3px solid #462868", height: "64px", paddingRight: "20px" }}></div>

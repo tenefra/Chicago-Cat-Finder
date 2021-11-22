@@ -41,7 +41,7 @@ function CatCard(props) {
     e.preventDefault()
     if (globalState.loggedIn) {
       try {
-        const response = await Axios.post("http://localhost:3306/cats/addfavorites", { userID: globalState.user.id, id: cat.id, name: cat.name, photos: cat.photos[0].large, age: cat.age, organizationId: cat.organization_id, gender: cat.gender, size: cat.size, description: cat.description, status: cat.status, distance: cat.distance, url: cat.url })
+        const response = await Axios.post("https://young-fortress-07940.herokuapp.com/cats/addfavorites", { userID: globalState.user.id, id: cat.id, name: cat.name, photos: cat.photos[0].large, age: cat.age, organizationId: cat.organization_id, gender: cat.gender, size: cat.size, description: cat.description, status: cat.status, distance: cat.distance, url: cat.url })
 
         if (response.data) {
           console.log("Added cat to favorites")
@@ -61,7 +61,7 @@ function CatCard(props) {
     e.preventDefault()
 
     try {
-      const response = await Axios.delete("http://localhost:3306/cats/removefavorites", { data: { userID: globalState.user.id, id: cat.id } })
+      const response = await Axios.delete("https://young-fortress-07940.herokuapp.com/cats/removefavorites", { data: { userID: globalState.user.id, id: cat.id } })
 
       if (response.data.affectedRows > 0) {
         console.log("Removed cat from favorites")
