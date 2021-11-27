@@ -25,19 +25,19 @@ function Search(props) {
   }
 
   return (
-    <container className="background-container">
-      <h1 className="search-title">Find a cat near you!</h1>
+    <div className="background-container">
       <div className="search-container">
+        <h4 className="search-title">Find a cat near you!</h4>
         <div className="search-box">
-          <form className="zip-form" onSubmit={e => handleSubmit(e)}>
+          <form className="zip-form" onSubmit={e => handleSubmit(e)} autoComplete="off">
             <input onChange={handleZipChange} type="text" className="search-input" name="zip" placeholder="Zip Code"></input>
             <button type="submit" className="search-button">
-              <Icon path={mdiCat} size={1.5} color="white" />
+              <Icon path={mdiCat} size={1.5} color="black" />
             </button>
           </form>
         </div>
       </div>
-    </container>
+    </div>
   )
 }
 

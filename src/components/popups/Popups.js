@@ -10,6 +10,7 @@ import { mdiCloseBox } from "@mdi/js"
 import PopupComponent from "./PopupComponent"
 import StateContext from "../../StateContext"
 import DispatchContext from "../../DispatchContext"
+import logo from "../../images/Logo_V2_05.svg"
 
 function Popups() {
   const globalState = useContext(StateContext)
@@ -21,6 +22,10 @@ function Popups() {
 
   const loginClosed = () => {
     appDispatch({ type: "loginClosed" })
+  }
+
+  const contactClosed = () => {
+    appDispatch({ type: "contactClosed" })
   }
 
   const handleUsernameChange = e => {
@@ -75,7 +80,8 @@ function Popups() {
     <>
       {/* Popup for Sign Up button on nav bar */}
       <PopupComponent trigger={globalState.createAccountClicked}>
-        <Icon onClick={createAccountClosed} className="close-btn" path={mdiCloseBox} size={2} color="#745296" />
+        <Icon onClick={createAccountClosed} className="close-btn" path={mdiCloseBox} size={2} color="#b3ddf2" />
+        <img className="logo" src={logo} alt="Windy Kitty Logo" />
         <h2 className="popup-header" style={{ textAlign: "center" }}>
           Create Account
         </h2>
@@ -108,7 +114,8 @@ function Popups() {
       </PopupComponent>
       {/* Popup for Log in button on nav bar */}
       <PopupComponent trigger={globalState.loginClicked}>
-        <Icon onClick={loginClosed} className="close-btn" path={mdiCloseBox} size={2} color="#745296" />
+        <Icon onClick={loginClosed} className="close-btn" path={mdiCloseBox} size={2} color="#b3ddf2" />
+        <img className="logo" src={logo} alt="Windy Kitty Logo" />
         <h2 className="popup-header" style={{ textAlign: "center" }}>
           Log In
         </h2>
@@ -130,6 +137,21 @@ function Popups() {
           </button>
         </form>
       </PopupComponent>
+      {/* Popup for Contact Shelter on cat page */}
+      {globalState.currentCat !== null ? (
+        <PopupComponent trigger={globalState.contactClicked}>
+          <Icon onClick={contactClosed} className="close-btn" path={mdiCloseBox} size={2} color="#745296" />
+          <h2 className="popup-header" style={{ textAlign: "center" }}>
+            Contact
+          </h2>
+          <p className="cat-contact">Email: {globalState.currentCat.contact.email}</p>
+          <p className="cat-contact">Phone: {globalState.currentCat.contact.phone}</p>
+          <p className="cat-contact">
+            {globalState.currentCat.contact.address.address1} <br />
+            {globalState.currentCat.contact.address.city} {globalState.currentCat.contact.address.state}, {globalState.currentCat.contact.address.postcode}
+          </p>
+        </PopupComponent>
+      ) : null}
     </>
   )
 }

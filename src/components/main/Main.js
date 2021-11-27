@@ -35,6 +35,7 @@ function Main() {
 
   async function requestCats() {
     const zip = parseInt(globalState.zipcode)
+    appDispatch({ type: "removeCats" })
 
     try {
       const response = await Axios.post("https://young-fortress-07940.herokuapp.com/token")
@@ -43,14 +44,21 @@ function Main() {
       if (accessToken) {
         try {
           console.log(zip)
-          const catResponse = await Axios.get(`https://api.petfinder.com/v2/animals?type=cat&page=1&location=${zip}&distance=50`, {
+          const catResponse = await Axios.get(`https://api.petfinder.com/v2/animals?type=cat&page=1&location=${zip}&distance=1`, {
             headers: {
               Authorization: "Bearer " + accessToken
             }
           })
           if (catResponse.data.animals) {
-            console.log("Cats have been successfully fetched!")
-            appDispatch({ type: "updateCats", data: catResponse.data.animals })
+            if (catResponse.data.animals.length == 0) {
+              console.log("There are no cats up for adoption within this range.")
+              console.log(catResponse)
+              appDispatch({ type: "updateCats", data: "no cats" })
+            } else {
+              console.log("Cats have been successfully fetched!")
+              console.log(catResponse)
+              appDispatch({ type: "updateCats", data: catResponse.data.animals })
+            }
           } else {
             console.log("We were unable to complete this request but the access token was valid.")
           }

@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography"
 import { createTheme } from "@material-ui/core/styles"
 import Icon from "@mdi/react"
 import { mdiHeart } from "@mdi/js"
+import { mdiBorderColor } from "@mdi/js"
 
 import StateContext from "../../StateContext"
 import DispatchContext from "../../DispatchContext"
@@ -82,12 +83,12 @@ function CatCard(props) {
     return (
       <Card className="card-margin" sx={{ width: 280 }}>
         {checkLikes(cat) ? <Icon onClick={heartRemoveHandler} className="card-heart-liked" path={mdiHeart} size={2} /> : <Icon onClick={heartAddHandler} className="card-heart-empty" path={mdiHeart} size={2} />}
-
-        <CardMedia component="img" height="180" src={cat.photos[0].medium || cat.photos || "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2886&q=80"} alt={cat.name} />
-
+        <Link to={`/cat/${cat.id}`}>
+          <CardMedia component="img" height="180" src={cat.photos[0].medium || cat.photos || "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2886&q=80"} alt={cat.name} />
+        </Link>
         <CardContent style={{ textAlign: "center" }}>
           <Link to={`/cat/${cat.id}`}>
-            <Typography className="p-style body-style" color={theme.palette.primary.dark} gutterBottom variant="h5" component="div">
+            <Typography className="p-style body-style" color="#000" gutterBottom variant="h5" component="div">
               {cat.name}
             </Typography>
           </Link>
@@ -99,7 +100,7 @@ function CatCard(props) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button className="body-style" style={{ backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText }} size="medium">
+          <Button className="body-style" style={{ backgroundColor: "#b3ddf2", color: "#000", fontWeight: "bold" }} size="medium">
             Adoptable
           </Button>
         </CardActions>
@@ -114,7 +115,7 @@ function CatCard(props) {
 
       <CardContent style={{ textAlign: "center" }}>
         <Link to={`/cat/${cat.id}`}>
-          <Typography className="p-style body-style" color={theme.palette.primary.dark} gutterBottom variant="h5" component="div">
+          <Typography className="p-style body-style" color="#000" gutterBottom variant="h5" component="div">
             {cat.name}
           </Typography>
         </Link>
@@ -126,7 +127,7 @@ function CatCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button className="body-style" style={{ backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText }} size="medium">
+        <Button className="body-style" style={{ backgroundColor: "#b3ddf2", color: "#000", fontWeight: "bold" }} size="medium">
           Adoptable
         </Button>
       </CardActions>

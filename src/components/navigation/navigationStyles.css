@@ -5,15 +5,18 @@
 .nav-list {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 }
 
 .nav-list-item {
   padding: 0 20px;
   list-style: none;
+  font-size: 1.15em;
+  color: black;
 }
 
 .nav-list-item > a {
-  color: white;
+  color: black;
 }
 
 a {
@@ -23,4 +26,8 @@ a {
 
 li:hover {
   cursor: pointer;
+}
+
+.logo {
+  width: 200px;
 }

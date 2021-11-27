@@ -1,7 +1,6 @@
-import React, { useState, useReducer, useEffect } from "react"
+import React, { useEffect } from "react"
 import { useImmerReducer } from "use-immer"
 import { BrowserRouter } from "react-router-dom"
-import { Provider } from "react-redux"
 
 import StateContext from "./StateContext"
 import DispatchContext from "./DispatchContext"
@@ -23,9 +22,11 @@ function App() {
     loggedIn: Boolean(localStorage.getItem("storedToken")),
     zipcode: 60618,
     cats: [],
+    currentCat: null,
     favorites: [],
     createAccountClicked: false,
-    loginClicked: false
+    loginClicked: false,
+    contactClicked: false
   }
 
   const ourReducer = (draft, action) => {
@@ -45,11 +46,17 @@ function App() {
       case "loginClicked":
         draft.loginClicked = true
         return
+      case "contactClicked":
+        draft.contactClicked = true
+        return
       case "createAccountClosed":
         draft.createAccountClicked = false
         return
       case "loginClosed":
         draft.loginClicked = false
+        return
+      case "contactClosed":
+        draft.contactClicked = false
         return
       case "inputUsername":
         draft.username = action.value
@@ -71,6 +78,9 @@ function App() {
         return
       case "removeCats":
         draft.cats = []
+        return
+      case "updateCurrentCat":
+        draft.currentCat = action.data
         return
       case "addToFavorites":
         draft.favorites.push(action.value)
@@ -99,6 +109,10 @@ function App() {
       localStorage.removeItem("storedId")
     }
   }, [state.loggedIn])
+
+  useEffect(() => {
+    localStorage.setItem("storedZip", state.zipcode)
+  }, [state.zipcode])
 
   return (
     <StateContext.Provider value={state}>

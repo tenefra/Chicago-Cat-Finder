@@ -13,6 +13,7 @@ import { mdiCat } from "@mdi/js"
 
 import StateContext from "../../StateContext"
 import CatCard from "../catCard/CatCard"
+import LogoIcon from "../../images/Icon.png"
 import "./adoptablesStyles.css"
 
 const theme = createTheme({
@@ -34,18 +35,13 @@ const theme = createTheme({
 function Adoptables() {
   const globalState = useContext(StateContext)
 
-  if (globalState.cats) {
+  if (globalState.cats == "no cats") {
     return (
-      <container>
-        <div style={{ backgroundColor: theme.palette.primary.main, height: "50px", width: "100%" }}></div>
+      <div>
         <h1 className="adoptables-title">Cats Looking for a Home in Chicago</h1>
         <div className="card-container">
-          {globalState.cats.slice(0, 3).map(cat => {
-            return <CatCard cat={cat} key={cat.id} />
-          })}
-
           <Card sx={{ width: 280, height: 357, backgroundColor: theme.palette.primary.main }}>
-            <Icon path={mdiCat} style={{ width: "120px", margin: "0 25%", padding: "54px 0 0" }} size={6} color="white" />
+            <img className="logo-icon" src={LogoIcon} />
             <CardContent style={{ textAlign: "center", padding: "30px 40px 30px" }}>
               <Typography className="body-style" style={{ padding: "0 0 10px", margin: "0 0 40px", color: theme.palette.primary.contrastText }} variant="p">
                 More cats available <br />
@@ -59,7 +55,35 @@ function Adoptables() {
             </Link>
           </Card>
         </div>
-      </container>
+      </div>
+    )
+  }
+
+  if (globalState.cats) {
+    return (
+      <div>
+        <h1 className="adoptables-title">Cats Looking for a Home in Chicago</h1>
+        <div className="card-container">
+          {globalState.cats.slice(0, 3).map(cat => {
+            return <CatCard cat={cat} key={cat.id} />
+          })}
+
+          <Card sx={{ width: 280, height: 357, backgroundColor: "#b3ddf2", margin: "0 0 0 23px" }}>
+            <img className="logo-icon" src={LogoIcon} />
+            <CardContent style={{ textAlign: "center", padding: "30px 40px 30px" }}>
+              <Typography className="card-copy body-style" style={{ padding: "0 0 10px", margin: "0 0 40px", color: "#000" }} variant="p">
+                More cats available <br />
+                in your area!
+              </Typography>
+            </CardContent>
+            <Link to="/cats">
+              <CardActions style={{ padding: 0 }}>
+                <Button className="body-style meet-them-btn">MEET THEM</Button>
+              </CardActions>
+            </Link>
+          </Card>
+        </div>
+      </div>
     )
   }
   return (

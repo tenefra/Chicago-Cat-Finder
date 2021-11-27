@@ -5,6 +5,7 @@ import StateContext from "../../StateContext"
 import DispatchContext from "../../DispatchContext"
 import CatCard from "../catCard/CatCard"
 import "./searchResultsStyles.css"
+import LoadingDotsIcon from "../loadingDotsIcon/LoadingDotsIcon"
 
 const theme = createTheme({
   palette: {
@@ -37,23 +38,29 @@ function SearchResults(props) {
     requestCats()
   }
 
-  return (
-    <>
-      <form onSubmit={e => handleSubmit(e)}>
-        <input onChange={handleZipChange} type="text" className="results-form" name="zip" placeholder={globalState.zipcode}></input>
-      </form>
+  if (globalState.cats == "no cats") {
+    return <h1>No cats up for adoption in this area</h1>
+  }
+  if (globalState.cats.length !== 0) {
+    return (
+      <>
+        <form onSubmit={e => handleSubmit(e)}>
+          <input onChange={handleZipChange} type="text" className="results-form" name="zip" autoComplete="off" placeholder={globalState.zipcode}></input>
+        </form>
 
-      <div className="items">
-        {globalState.cats.map(cat => {
-          return (
-            <>
-              <CatCard cat={cat} key={cat.id} />
-            </>
-          )
-        })}
-      </div>
-    </>
-  )
+        <div className="items">
+          {globalState.cats.map(cat => {
+            return (
+              <>
+                <CatCard cat={cat} key={cat.id} />
+              </>
+            )
+          })}
+        </div>
+      </>
+    )
+  }
+  return <LoadingDotsIcon />
 }
 
 export default SearchResults

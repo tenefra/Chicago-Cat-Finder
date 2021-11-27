@@ -11,6 +11,7 @@ import DispatchContext from "../../DispatchContext"
 
 import Login from "./Login"
 import Logout from "./Logout"
+import logo from "../../images/Logo_V2_05.svg"
 import "./navigationStyles.css"
 
 const theme = createTheme({
@@ -44,12 +45,10 @@ const Navigation = () => {
 
   return (
     <>
-      <AppBar style={{ backgroundColor: theme.palette.primary.main, padding: "0 110px" }} position="relative">
+      <AppBar style={{ backgroundColor: "#FFF", padding: "0 110px" }} position="relative">
         <Toolbar>
           <Link to="/">
-            <Typography style={{ textDecoration: "none", color: "#FFF" }} variant="h6">
-              Chicago Cat Finder
-            </Typography>
+            <img className="logo" src={logo} alt="Windy Kitty Logo" />
           </Link>
           <ul className="nav-list" style={{ flexGrow: "1" }}>
             <li className="nav-list-item">
@@ -63,17 +62,17 @@ const Navigation = () => {
               <Link to="/help">Donate</Link>
             </li>
           </ul>
-          <div style={{ borderLeft: "3px solid #462868", height: "64px", paddingRight: "20px" }}></div>
+          <div style={{ borderLeft: "3px solid #B3DDF2", height: "64px", paddingRight: "20px" }}></div>
           {globalState.loggedIn ? (
             <Link to="/favorites">
-              <Icon path={mdiHeart} size={1.3} color="white" />
+              <Icon path={mdiHeart} size={1.3} color="#FF0000" />
             </Link>
           ) : (
             <a onClick={loginClicked}>
-              <Icon path={mdiHeart} size={1.3} color="white" />
+              <Icon path={mdiHeart} size={1.3} color="#FF0000" />
             </a>
           )}
-          <div style={{ borderRight: "3px solid #462868", height: "64px", paddingLeft: "20px" }}></div>
+          <div style={{ borderRight: "3px solid #B3DDF2", height: "64px", paddingLeft: "20px" }}></div>
           <ul className="nav-list">
             {globalState.loggedIn ? (
               <li className="nav-list-item">
