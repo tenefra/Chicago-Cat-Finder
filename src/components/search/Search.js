@@ -1,19 +1,15 @@
-import React, { useContext, useEffect } from "react"
-import Axios from "axios"
+import React, { useContext } from "react"
 import Icon from "@mdi/react"
 import { mdiMagnify } from "@mdi/js"
 
 import { History, withRouter } from "react-router-dom"
 
-import StateContext from "../../StateContext"
 import DispatchContext from "../../DispatchContext"
 import Image from "../../images/Background.jpg"
 
 import "./searchStyles.css"
-import { IsoOutlined } from "@material-ui/icons"
 
 function Search(props) {
-  const globalState = useContext(StateContext)
   const appDispatch = useContext(DispatchContext)
   const requestCats = props.requestCats
 
@@ -40,7 +36,7 @@ function Search(props) {
           </form>
         </div>
       </div>
-      <img className="desktop-hidden mobile-image" src={Image} />
+      <img className="desktop-hidden mobile-image" alt="Cat background" src={Image} />
     </div>
   )
 }

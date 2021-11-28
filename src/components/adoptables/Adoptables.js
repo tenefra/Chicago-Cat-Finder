@@ -1,15 +1,11 @@
-import React, { useEffect, useContext } from "react"
+import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import Card from "@mui/material/Card"
 import CardActions from "@mui/material/CardActions"
 import CardContent from "@mui/material/CardContent"
-import CardMedia from "@mui/material/CardMedia"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import { createTheme } from "@material-ui/core/styles"
-import Icon from "@mdi/react"
-import { mdiHeart } from "@mdi/js"
-import { mdiCat } from "@mdi/js"
 
 import StateContext from "../../StateContext"
 import CatCard from "../catCard/CatCard"
@@ -35,13 +31,13 @@ const theme = createTheme({
 function Adoptables() {
   const globalState = useContext(StateContext)
 
-  if (globalState.cats == "no cats") {
+  if (globalState.cats === "no cats") {
     return (
       <div>
         <h1 className="adoptables-title">Cats Looking for a Home in Chicago</h1>
         <div className="card-container">
           <Card sx={{ width: 280, height: 357, backgroundColor: theme.palette.primary.main }}>
-            <img className="logo-icon" src={LogoIcon} />
+            <img className="logo-icon" alt="Windy Kitty Logo" src={LogoIcon} />
             <CardContent style={{ textAlign: "center", padding: "30px 40px 30px" }}>
               <Typography className="body-style" style={{ padding: "0 0 10px", margin: "0 0 40px", color: theme.palette.primary.contrastText }} variant="p">
                 More cats available <br />
@@ -69,7 +65,7 @@ function Adoptables() {
           })}
 
           <Card className="meet-them-card" sx={{ backgroundColor: "#b3ddf2" }}>
-            <img className="logo-icon" src={LogoIcon} />
+            <img className="logo-icon" alt="Windy Kitty Logo" src={LogoIcon} />
             <CardContent style={{ textAlign: "center", padding: "30px 40px 30px" }}>
               <Typography className="card-copy body-style" style={{ padding: "0 0 10px", margin: "0 0 40px", color: "#000" }} variant="p">
                 More cats available <br />

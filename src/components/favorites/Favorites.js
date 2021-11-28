@@ -1,21 +1,11 @@
 import React, { useContext, useEffect } from "react"
-import Axios from "axios"
-import Card from "@mui/material/Card"
-import CardActions from "@mui/material/CardActions"
-import CardContent from "@mui/material/CardContent"
-import CardMedia from "@mui/material/CardMedia"
-import Button from "@mui/material/Button"
-import Typography from "@mui/material/Typography"
-import { createTheme } from "@material-ui/core/styles"
 
 import StateContext from "../../StateContext"
-import DispatchContext from "../../DispatchContext"
 import CatCard from "../catCard/CatCard"
 import "./favoritesStyles.css"
 
 function Favorites(props) {
   const globalState = useContext(StateContext)
-  const appDispatch = useContext(DispatchContext)
   const fetchFavorites = props.fetchFavorites
 
   useEffect(() => {

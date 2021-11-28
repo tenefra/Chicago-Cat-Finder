@@ -45,6 +45,10 @@ li:hover {
   display: none;
 }
 
+.heart-div {
+  cursor: pointer;
+}
+
 @media (min-device-width: 926px) and (max-device-width: 1124px) {
   .desktop-nav {
     padding: 0 10px;

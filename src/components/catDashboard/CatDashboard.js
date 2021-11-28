@@ -1,6 +1,5 @@
-import React, { useEffect } from "react"
+import React from "react"
 import SearchResults from "../searchResults/SearchResults"
-import CatSidebar from "../catSidebar/CatSidebar"
 
 import "./catDashboardStyles.css"
 

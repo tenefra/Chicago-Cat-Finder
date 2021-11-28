@@ -1,8 +1,6 @@
 import React, { useContext } from "react"
-import { AppBar, Toolbar, Typography } from "@material-ui/core"
+import { AppBar, Toolbar } from "@material-ui/core"
 import { Link } from "react-router-dom"
-import cookie from "cookie"
-import { createTheme } from "@material-ui/core/styles"
 import Icon from "@mdi/react"
 import { mdiHeart } from "@mdi/js"
 
@@ -13,23 +11,6 @@ import Login from "./Login"
 import Logout from "./Logout"
 import logo from "../../images/Logo_V2_05.svg"
 import "./navigationStyles.css"
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      light: "#a47fc7",
-      main: "#745296",
-      dark: "#462868",
-      contrastText: "#fff"
-    },
-    secondary: {
-      light: "#ff7961",
-      main: "#f44336",
-      dark: "#ba000d",
-      contrastText: "#000"
-    }
-  }
-})
 
 const Navigation = () => {
   const globalState = useContext(StateContext)
@@ -68,9 +49,9 @@ const Navigation = () => {
               <Icon path={mdiHeart} size={1.3} color="#FF0000" />
             </Link>
           ) : (
-            <a onClick={loginClicked}>
+            <div className="heart-div" onClick={loginClicked}>
               <Icon path={mdiHeart} size={1.3} color="#FF0000" />
-            </a>
+            </div>
           )}
           <div style={{ borderRight: "3px solid #B3DDF2", height: "64px", paddingLeft: "20px" }}></div>
           <ul className="nav-list">
@@ -108,9 +89,9 @@ const Navigation = () => {
                   <Icon path={mdiHeart} size={2} color="#FF0000" />
                 </Link>
               ) : (
-                <a onClick={loginClicked}>
+                <div onClick={loginClicked}>
                   <Icon path={mdiHeart} size={2} color="#FF0000" />
-                </a>
+                </div>
               )}
             </div>
             <Link to="/">

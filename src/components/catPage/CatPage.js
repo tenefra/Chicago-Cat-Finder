@@ -47,33 +47,37 @@ function CatPage() {
     appDispatch({ type: "contactClicked" })
   }
 
-  const petFinderClicked = url => {
-    window.open = url
+  function decodeHtml(html) {
+    var txt = document.createElement("textarea")
+    txt.innerHTML = html
+    return txt.value
   }
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  if (globalState.cats == undefined) {
+  if (globalState.cats === undefined) {
     requestIndividual()
     return <LoadingDotsIcon />
   }
   if (globalState.cats.length !== 0) {
     const cat = globalState.cats.find(cat => cat.id == id)
+    const cleanName = decodeHtml(cat.name)
+    const cleanDesc = decodeHtml(cat.description)
     appDispatch({ type: "updateCurrentCat", data: cat })
     return (
       <>
         <div>
           <section className="cat-page-topsection">
             <div>
-              <img className="cat-page-img" src={cat.photos[0].large || cat.photos} />
+              <img className="cat-page-img" alt={cleanName} src={cat.photos[0].large || cat.photos} />
             </div>
             <div className="cat-page-column-one">
               {cat.distance == null ? null : <button className="body-style distance-button">{cat.distance.toFixed(1)} miles</button>}
 
-              <h1 className="cat-page-name">{cat.name}</h1>
-              <p className="cat-page-description">{cat.description}</p>
+              <h1 className="cat-page-name">{cleanName}</h1>
+              <p className="cat-page-description">{cleanDesc}</p>
               <h5 className="cat-page-subitem">About {cat.name}</h5>
               <p className="cat-page-about">
                 <strong>Gender:</strong> {cat.gender}

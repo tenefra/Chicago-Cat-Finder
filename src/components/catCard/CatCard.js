@@ -7,34 +7,16 @@ import CardContent from "@mui/material/CardContent"
 import CardMedia from "@mui/material/CardMedia"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
-import { createTheme } from "@material-ui/core/styles"
 import Icon from "@mdi/react"
 import { mdiHeart } from "@mdi/js"
-import { mdiBorderColor } from "@mdi/js"
 
 import StateContext from "../../StateContext"
 import DispatchContext from "../../DispatchContext"
 import "./catCardStyles.css"
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      light: "#a47fc7",
-      main: "#745296",
-      dark: "#462868",
-      contrastText: "#fff"
-    },
-    secondary: {
-      light: "#ff7961",
-      main: "#f44336",
-      dark: "#ba000d",
-      contrastText: "#000"
-    }
-  }
-})
-
 function CatCard(props) {
   const cat = props.cat
+  const cleanName = decodeHtml(props.cat.name)
   const globalState = useContext(StateContext)
   const appDispatch = useContext(DispatchContext)
 
@@ -79,6 +61,12 @@ function CatCard(props) {
     return globalState.favorites.some(favorite => cat.id === favorite.id)
   }
 
+  function decodeHtml(html) {
+    var txt = document.createElement("textarea")
+    txt.innerHTML = html
+    return txt.value
+  }
+
   if (cat.photos.length !== 0) {
     return (
       <Card className="card-margin">
@@ -89,7 +77,7 @@ function CatCard(props) {
         <CardContent style={{ textAlign: "center" }}>
           <Link to={`/cat/${cat.id}`}>
             <Typography className="p-style body-style" color="#000" gutterBottom variant="h5" component="div">
-              {cat.name}
+              {cleanName}
             </Typography>
           </Link>
           <Typography className="p-style body-style" variant="h6" color="text.secondary">
@@ -116,7 +104,7 @@ function CatCard(props) {
       <CardContent style={{ textAlign: "center" }}>
         <Link to={`/cat/${cat.id}`}>
           <Typography className="p-style body-style" color="#000" gutterBottom variant="h5" component="div">
-            {cat.name}
+            {cleanName}
           </Typography>
         </Link>
         <Typography className="p-style body-style" variant="h6" color="text.secondary">

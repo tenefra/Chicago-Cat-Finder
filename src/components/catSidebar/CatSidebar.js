@@ -1,5 +1,4 @@
-import React, { useEffect, useContext } from "react"
-
+import React, { useContext } from "react"
 import StateContext from "../../StateContext"
 import "./catSidebarStyles.css"
 

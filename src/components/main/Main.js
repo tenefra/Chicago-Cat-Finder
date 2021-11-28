@@ -23,9 +23,7 @@ function Main() {
       if (response.data) {
         const updatedFavorites = []
         const arr = response.data
-        console.log(arr)
         for (let i = 0; i < arr.length; i++) {
-          console.log(arr[i].id)
           const currentCatId = arr[i].id
           try {
             const response = await Axios.post("https://young-fortress-07940.herokuapp.com/token")
@@ -79,7 +77,7 @@ function Main() {
             }
           })
           if (catResponse.data.animals) {
-            if (catResponse.data.animals.length == 0) {
+            if (catResponse.data.animals.length === 0) {
               console.log("There are no cats up for adoption within this range.")
 
               appDispatch({ type: "updateCats", data: "no cats" })
