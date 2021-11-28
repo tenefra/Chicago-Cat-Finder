@@ -130,7 +130,7 @@ function Popups() {
             <label htmlFor="password-register" className="text-muted form-label mb-1">
               <small>Password</small>
             </label>
-            <input onChange={handlePasswordChange} id="password-register" name="password" className="form-control form-input" type="password" placeholder="Create a password" />
+            <input onChange={handlePasswordChange} id="password-register" name="password" className="form-control form-input" type="password" placeholder="*********" />
           </div>
           <button type="submit" className="form-submit-btn">
             Log In
@@ -140,7 +140,7 @@ function Popups() {
       {/* Popup for Contact Shelter on cat page */}
       {globalState.currentCat !== null ? (
         <PopupComponent trigger={globalState.contactClicked}>
-          <Icon onClick={contactClosed} className="close-btn" path={mdiCloseBox} size={2} color="#745296" />
+          <Icon onClick={contactClosed} className="close-btn" path={mdiCloseBox} size={2} color="#b3ddf2" />
           <h2 className="popup-header" style={{ textAlign: "center" }}>
             Contact
           </h2>

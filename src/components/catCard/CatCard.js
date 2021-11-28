@@ -81,7 +81,7 @@ function CatCard(props) {
 
   if (cat.photos.length !== 0) {
     return (
-      <Card className="card-margin" sx={{ width: 280 }}>
+      <Card className="card-margin">
         {checkLikes(cat) ? <Icon onClick={heartRemoveHandler} className="card-heart-liked" path={mdiHeart} size={2} /> : <Icon onClick={heartAddHandler} className="card-heart-empty" path={mdiHeart} size={2} />}
         <Link to={`/cat/${cat.id}`}>
           <CardMedia component="img" height="180" src={cat.photos[0].medium || cat.photos || "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2886&q=80"} alt={cat.name} />
@@ -108,7 +108,7 @@ function CatCard(props) {
     )
   }
   return (
-    <Card className="card-margin" sx={{ width: 280 }}>
+    <Card className="card-margin">
       {checkLikes(cat) ? <Icon onClick={heartRemoveHandler} className="card-heart-liked" path={mdiHeart} size={2} /> : <Icon onClick={heartAddHandler} className="card-heart-empty" path={mdiHeart} size={2} />}
 
       <CardMedia component="img" height="180" src={"https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2886&q=80"} alt={cat.name} />

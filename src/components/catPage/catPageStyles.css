@@ -15,6 +15,7 @@
 .cat-page-description {
   font-size: 1.25em;
   margin-block-start: 10px;
+  width: 550px;
 }
 
 .cat-page-about {
@@ -49,7 +50,7 @@
   border-radius: 4px;
   border: none;
   position: absolute;
-  left: 520px;
+  left: 700px;
   top: 90px;
 }
 
@@ -61,7 +62,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 500px;
 }
 
 .contact-button {
@@ -80,4 +81,40 @@
 .contact-button:hover {
   background: rgb(122, 191, 226);
   transition: all 0.3s ease;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .cat-page-img {
+    width: 100%;
+  }
+  .cat-page-topsection {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cat-page-column-one {
+    padding: 20px;
+  }
+
+  .cat-page-description {
+    width: 100%;
+  }
+  .distance-button {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .contact-section {
+    border: none;
+    margin-top: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .contact-button {
+    width: 95%;
+  }
 }

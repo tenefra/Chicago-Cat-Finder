@@ -68,7 +68,7 @@ function Adoptables() {
             return <CatCard cat={cat} key={cat.id} />
           })}
 
-          <Card sx={{ width: 280, height: 357, backgroundColor: "#b3ddf2", margin: "0 0 0 23px" }}>
+          <Card className="meet-them-card" sx={{ backgroundColor: "#b3ddf2" }}>
             <img className="logo-icon" src={LogoIcon} />
             <CardContent style={{ textAlign: "center", padding: "30px 40px 30px" }}>
               <Typography className="card-copy body-style" style={{ padding: "0 0 10px", margin: "0 0 40px", color: "#000" }} variant="p">

@@ -95,3 +95,15 @@
   font-size: 1.25em;
   padding: 0 60px;
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .popup-inner {
+    width: 80%;
+  }
+  .login-form {
+    padding: 0px 30px 40px;
+  }
+  .popup-header {
+    padding: 40px 0 10px 0;
+  }
+}

@@ -1,13 +1,16 @@
 import React, { useContext, useEffect } from "react"
 import Axios from "axios"
 import Icon from "@mdi/react"
-import { mdiCat } from "@mdi/js"
+import { mdiMagnify } from "@mdi/js"
+
 import { History, withRouter } from "react-router-dom"
 
 import StateContext from "../../StateContext"
 import DispatchContext from "../../DispatchContext"
+import Image from "../../images/Background.jpg"
 
 import "./searchStyles.css"
+import { IsoOutlined } from "@material-ui/icons"
 
 function Search(props) {
   const globalState = useContext(StateContext)
@@ -32,11 +35,12 @@ function Search(props) {
           <form className="zip-form" onSubmit={e => handleSubmit(e)} autoComplete="off">
             <input onChange={handleZipChange} type="text" className="search-input" name="zip" placeholder="Zip Code"></input>
             <button type="submit" className="search-button">
-              <Icon path={mdiCat} size={1.5} color="black" />
+              <Icon path={mdiMagnify} size={1.5} color="black" />
             </button>
           </form>
         </div>
       </div>
+      <img className="desktop-hidden mobile-image" src={Image} />
     </div>
   )
 }

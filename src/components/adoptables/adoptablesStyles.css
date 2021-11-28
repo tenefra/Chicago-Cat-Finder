@@ -4,11 +4,19 @@
   text-align: center;
 }
 .card-container {
+  padding: 0 0 80px 0;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   width: 1200px;
+  background: transparent !important;
+}
+
+.meet-them-card {
+  margin: 0 0 0 23px;
+  width: 280px;
+  height: 357px;
 }
 
 .meet-them-btn {
@@ -51,18 +59,31 @@
   padding: 60px 0 0;
 }
 
+@media (min-device-width: 768px) and (max-device-width: 1124px) {
+  .card-container {
+    margin: 0 auto;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .card-container {
-    padding: 0;
+    padding: 0 0 80px 0;
     margin: 0 auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
 
   .adoptables-title {
     font-size: 2em;
     padding: 0 20px;
+  }
+
+  .meet-them-card {
+    margin: 0;
   }
 }

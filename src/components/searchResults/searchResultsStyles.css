@@ -9,7 +9,9 @@
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 100px 40px 40px;
+  justify-content: space-around;
+  width: 75%;
+  margin: 100px auto;
 }
 
 .cat-card {
@@ -46,4 +48,16 @@
   font-size: 1.2em;
   color: #000;
   background: #f6f6f6;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .items {
+    flex-direction: column;
+    padding-inline-start: 0;
+  }
+
+  .results-form {
+    position: relative;
+    margin: 20px 0;
+  }
 }

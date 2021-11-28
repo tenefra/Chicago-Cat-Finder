@@ -45,8 +45,8 @@ const Navigation = () => {
 
   return (
     <>
-      <AppBar style={{ backgroundColor: "#FFF", padding: "0 110px" }} position="relative">
-        <Toolbar>
+      <AppBar className="desktop-nav" style={{ backgroundColor: "#FFF" }} position="relative">
+        <Toolbar className="desktop-tool">
           <Link to="/">
             <img className="logo" src={logo} alt="Windy Kitty Logo" />
           </Link>
@@ -74,11 +74,7 @@ const Navigation = () => {
           )}
           <div style={{ borderRight: "3px solid #B3DDF2", height: "64px", paddingLeft: "20px" }}></div>
           <ul className="nav-list">
-            {globalState.loggedIn ? (
-              <li className="nav-list-item">
-                <Link to="/signup">Your Account</Link>
-              </li>
-            ) : (
+            {globalState.loggedIn ? null : (
               <li onClick={openSignup} className="nav-list-item">
                 Sign Up
               </li>
@@ -87,6 +83,58 @@ const Navigation = () => {
           </ul>
         </Toolbar>
       </AppBar>
+      <nav className="mobile-nav" role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <ul className="nav-list" style={{ flexGrow: "1" }}>
+              <li className="nav-list-item">
+                <Link to="/cats">Find A Cat</Link>
+              </li>
+
+              <li className="nav-list-item">
+                <Link to="/care">Pet Care</Link>
+              </li>
+              <li className="nav-list-item">
+                <Link to="/help">Donate</Link>
+              </li>
+            </ul>
+            <div className="mobile-favorite">
+              {globalState.loggedIn ? (
+                <Link to="/favorites">
+                  <Icon path={mdiHeart} size={2} color="#FF0000" />
+                </Link>
+              ) : (
+                <a onClick={loginClicked}>
+                  <Icon path={mdiHeart} size={2} color="#FF0000" />
+                </a>
+              )}
+            </div>
+            <Link to="/">
+              <img className="toggle-logo" src={logo} alt="Windy Kitty Logo" />
+            </Link>
+
+            <ul className="nav-list">
+              {globalState.loggedIn ? (
+                <li className="nav-list-item">
+                  <Link to="/signup">Your Account</Link>
+                </li>
+              ) : (
+                <li onClick={openSignup} className="nav-list-item">
+                  Sign Up
+                </li>
+              )}
+              {globalState.loggedIn ? <Login /> : <Logout />}
+            </ul>
+          </ul>
+        </div>
+        <Link to="/">
+          <img className="logo" src={logo} alt="Windy Kitty Logo" />
+        </Link>
+      </nav>
     </>
   )
 }

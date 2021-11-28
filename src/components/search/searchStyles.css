@@ -51,11 +51,31 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 35%;
+  padding: 0 40px;
   background: rgb(229, 229, 229, 0.8);
   position: absolute;
   top: 300px;
   left: 800px;
+}
+
+@media (min-device-width: 768px) and (max-device-width: 926px) {
+  .search-container {
+    width: 40%;
+    position: absolute;
+    top: 300px;
+    left: 300px;
+    padding: 0 15px;
+  }
+}
+
+@media (min-device-width: 926px) and (max-device-width: 1124px) {
+  .search-container {
+    width: 40%;
+    position: absolute;
+    top: 300px;
+    left: 550px;
+    padding: 0 15px;
+  }
 }
 
 /* Smartphones (portrait and landscape) ----------- */
@@ -65,16 +85,28 @@
   }
 
   .background-container {
+    background-image: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: auto;
   }
 
   .search-container {
-    width: 85%;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 0;
   }
 
   .search-box {
     height: 50px;
+    width: 350px;
+  }
+
+  .mobile-image {
+    width: 100%;
   }
 }

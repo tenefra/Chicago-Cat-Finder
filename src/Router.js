@@ -20,6 +20,8 @@ import { Switch, Route, Redirect } from "react-router"
 
 const Router = props => {
   const requestCats = props.requestCats
+  const fetchFavorites = props.fetchFavorites
+
   return (
     <Switch>
       {/* <ProtectedRoute path="/addlisting" component={AddListingContainer} /> */}
@@ -36,7 +38,7 @@ const Router = props => {
         <CatPage />
       </Route>
       <Route path="/favorites">
-        <Favorites />
+        <Favorites fetchFavorites={fetchFavorites} />
       </Route>
       <Route path="/">
         <Dashboard requestCats={requestCats} />

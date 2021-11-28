@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { createTheme } from "@material-ui/core/styles"
 
 import StateContext from "../../StateContext"
@@ -37,6 +37,10 @@ function SearchResults(props) {
     e.preventDefault()
     requestCats()
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   if (globalState.cats == "no cats") {
     return <h1>No cats up for adoption in this area</h1>

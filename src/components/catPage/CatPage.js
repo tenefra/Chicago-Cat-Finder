@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { useParams } from "react-router"
 import Axios from "axios"
 
@@ -51,21 +51,27 @@ function CatPage() {
     window.open = url
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   if (globalState.cats == undefined) {
     requestIndividual()
     return <LoadingDotsIcon />
   }
   if (globalState.cats.length !== 0) {
     const cat = globalState.cats.find(cat => cat.id == id)
-    const distance = cat.distance
-    const round = distance.toFixed(1)
     appDispatch({ type: "updateCurrentCat", data: cat })
     return (
       <>
         <div>
           <section className="cat-page-topsection">
+            <div>
+              <img className="cat-page-img" src={cat.photos[0].large || cat.photos} />
+            </div>
             <div className="cat-page-column-one">
-              <button className="body-style distance-button">{round} miles</button>
+              {cat.distance == null ? null : <button className="body-style distance-button">{cat.distance.toFixed(1)} miles</button>}
+
               <h1 className="cat-page-name">{cat.name}</h1>
               <p className="cat-page-description">{cat.description}</p>
               <h5 className="cat-page-subitem">About {cat.name}</h5>
@@ -96,9 +102,6 @@ function CatPage() {
                   View on PetFinder
                 </a>
               </div>
-            </div>
-            <div>
-              <img className="cat-page-img" src={cat.photos[0].large || cat.photos} />
             </div>
           </section>
         </div>
