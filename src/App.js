@@ -21,6 +21,7 @@ function App() {
     },
     loggedIn: Boolean(localStorage.getItem("storedToken")),
     zipcode: 60618,
+    searchRadius: 5,
     cats: [],
     currentCat: null,
     favorites: [],
@@ -72,6 +73,9 @@ function App() {
         return
       case "updateZipcode":
         draft.zipcode = action.value
+        return
+      case "updateZipcode":
+        draft.searchRadius = action.value
         return
       case "updateCats":
         draft.cats = action.data

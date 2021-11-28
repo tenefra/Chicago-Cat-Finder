@@ -15,6 +15,10 @@ function SearchResults(props) {
     appDispatch({ type: "updateZipcode", value: e.target.value })
   }
 
+  const handleSearchRadiusChange = e => {
+    appDispatch({ type: "updateSearchRadius", value: e.target.value })
+  }
+
   const handleSubmit = e => {
     e.preventDefault()
     requestCats()
@@ -31,6 +35,9 @@ function SearchResults(props) {
         <form onSubmit={e => handleSubmit(e)}>
           <input onChange={handleZipChange} type="text" className="results-form" name="zip" autoComplete="off" placeholder={globalState.zipcode}></input>
         </form>
+        <form onSubmit={e => handleSubmit(e)}>
+          <input onChange={handleSearchRadiusChange} type="text" className="radius-form" name="radius" autoComplete="off" placeholder={globalState.searchRadius}></input>
+        </form>
       </>
     )
   }
@@ -40,7 +47,9 @@ function SearchResults(props) {
         <form onSubmit={e => handleSubmit(e)}>
           <input onChange={handleZipChange} type="text" className="results-form" name="zip" autoComplete="off" placeholder={globalState.zipcode}></input>
         </form>
-
+        <form onSubmit={e => handleSubmit(e)}>
+          <input onChange={handleSearchRadiusChange} type="text" className="radius-form" name="radius" autoComplete="off" placeholder={globalState.searchRadius}></input>
+        </form>
         <div className="items">
           {globalState.cats.map(cat => {
             return <CatCard cat={cat} key={cat.id} />

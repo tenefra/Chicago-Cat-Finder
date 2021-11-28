@@ -54,6 +54,18 @@
   color: #000;
   background: #f6f6f6;
 }
+.radius-form {
+  position: absolute;
+  width: 100px;
+  left: 260px;
+  top: 100px;
+  padding: 10px 0 10px 20px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 1.2em;
+  color: #000;
+  background: #f6f6f6;
+}
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .items {
