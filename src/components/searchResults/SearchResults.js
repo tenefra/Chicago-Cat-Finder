@@ -33,23 +33,35 @@ function SearchResults(props) {
       <>
         <h1 className="no-results-header">No cats up for adoption in this area</h1>
         <form onSubmit={e => handleSubmit(e)}>
+          {/* <label htmlFor="zip">
+            <small>Zipcode</small>
+          </label> */}
           <input onChange={handleZipChange} type="text" className="results-form" name="zip" autoComplete="off" placeholder={globalState.zipcode}></input>
         </form>
+        {/* <label htmlFor="radius">
+          <small>Search Radius</small>
+        </label>
         <form onSubmit={e => handleSubmit(e)}>
           <input onChange={handleSearchRadiusChange} type="text" className="radius-form" name="radius" autoComplete="off" placeholder={globalState.searchRadius}></input>
-        </form>
+        </form> */}
       </>
     )
   }
   if (globalState.cats.length !== 0) {
     return (
       <>
+        {/* <label htmlFor="zip">
+          <small>Zipcode</small>
+        </label> */}
         <form onSubmit={e => handleSubmit(e)}>
           <input onChange={handleZipChange} type="text" className="results-form" name="zip" autoComplete="off" placeholder={globalState.zipcode}></input>
         </form>
+        {/* <label htmlFor="radius">
+          <small>Search Radius</small>
+        </label>
         <form onSubmit={e => handleSubmit(e)}>
           <input onChange={handleSearchRadiusChange} type="text" className="radius-form" name="radius" autoComplete="off" placeholder={globalState.searchRadius}></input>
-        </form>
+        </form> */}
         <div className="items">
           {globalState.cats.map(cat => {
             return <CatCard cat={cat} key={cat.id} />
