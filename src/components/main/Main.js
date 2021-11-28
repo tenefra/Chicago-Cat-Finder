@@ -71,7 +71,7 @@ function Main() {
 
       if (accessToken) {
         try {
-          const catResponse = await Axios.get(`https://api.petfinder.com/v2/animals?type=cat&page=1&location=${zip}&distance=1`, {
+          const catResponse = await Axios.get(`https://api.petfinder.com/v2/animals?type=cat&page=1&location=${zip}&distance=5`, {
             headers: {
               Authorization: "Bearer " + accessToken
             }

@@ -7,3 +7,9 @@ ul {
 .cat-card {
   margin: 20px 10px;
 }
+
+.no-favorites-header {
+  text-align: center;
+  font-size: 3em;
+  padding: 60px 0 0 0;
+}

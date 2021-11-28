@@ -3,6 +3,11 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.no-results-header {
+  text-align: center;
+  font-size: 3em;
+  padding: 60px 0 0 0;
+}
 
 .items {
   display: flex;

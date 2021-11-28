@@ -25,7 +25,14 @@ function SearchResults(props) {
   }, [])
 
   if (globalState.cats === "no cats") {
-    return <h1>No cats up for adoption in this area</h1>
+    return (
+      <>
+        <h1 className="no-results-header">No cats up for adoption in this area</h1>
+        <form onSubmit={e => handleSubmit(e)}>
+          <input onChange={handleZipChange} type="text" className="results-form" name="zip" autoComplete="off" placeholder={globalState.zipcode}></input>
+        </form>
+      </>
+    )
   }
   if (globalState.cats.length !== 0) {
     return (

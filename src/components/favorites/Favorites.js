@@ -24,7 +24,7 @@ function Favorites(props) {
       </>
     )
   }
-  return <h1>You haven't favorited any cats yet!</h1>
+  return <h1 className="no-favorites-header">You haven't favorited any cats yet!</h1>
 }
 
 export default Favorites
