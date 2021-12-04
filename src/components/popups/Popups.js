@@ -43,14 +43,12 @@ function Popups() {
   async function handleSubmit(e) {
     e.preventDefault()
     try {
-      const response = await Axios.post("https://young-fortress-07940.herokuapp.com/createUser", { username: globalState.username, email: globalState.email, password: globalState.password })
+      const response = await Axios.post("https://young-fortress-07940.herokuapp.com/users", { username: globalState.username, email: globalState.email, password: globalState.password })
 
       if (response.data.token) {
-        console.log("User was successfully created.")
         appDispatch({ type: "createAccountClosed" })
         appDispatch({ type: "login", data: response.data })
       } else {
-        console.log("Incorrect username / password")
         appDispatch({ type: "logout" })
       }
     } catch (e) {
@@ -64,11 +62,9 @@ function Popups() {
       const response = await Axios.post("https://young-fortress-07940.herokuapp.com/login", { username: globalState.username, password: globalState.password })
 
       if (response.data.token) {
-        console.log("User was successfully logged in.")
         appDispatch({ type: "loginClosed" })
         appDispatch({ type: "login", data: response.data })
       } else {
-        console.log("Incorrect username / password")
         appDispatch({ type: "logout" })
       }
     } catch (e) {
